@@ -1,5 +1,3 @@
 # hack hack hack
 
-data - where data lives /n
-map - for maps /n
-other - misc
+data - where data lives, map - for maps, other - misc
