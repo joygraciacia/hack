@@ -9,9 +9,10 @@ app = Flask(__name__)
 @app.route('/',methods=['GET','POST'])
 def home():
     return render_template('index.html')
+    # return redirect(url_for('non_med'))
 
 
-@app.route('/Non-Medical', methods=['GET','POST'])
+@app.route('/non_med', methods=['GET','POST'])
 def non_med():
     if request.method == 'POST':
         response = request.form.getlist('mycheckbox')
@@ -19,11 +20,12 @@ def non_med():
         results = testing(response)
         print(results)
         return render_template('nonmedical_results.html')
+        # return render_template('nonmedical_results.html')
     else: 
         return render_template('nonmedical.html')
 
-@app.route('/Medical', methods=['GET','POST'])
-def index():
+@app.route('/med', methods=['GET','POST'])
+def med():
     if request.method == 'POST':
         response = request.form.getlist('mycheckbox')
         print(response)
