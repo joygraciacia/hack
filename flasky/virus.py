@@ -1,13 +1,90 @@
 from flask import Flask, request, redirect, url_for, render_template
 import requests, json
 from pprint import pprint
+from flask_wtf import FlaskForm 
+from wtforms import StringField, SubmitField 
+from wtforms.validators import DataRequired
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'hard to guess'
 
-@app.route('/', methods=['POST','GET'])
-def hello():
-    return render_template("index.html")
+@app.route('/', methods=['GET','POST'])
+def index():
+    if request.method == 'POST':
+        response = request.form.getlist('mycheckbox')
+        print(response)
+        results = testing(response)
+        print(results)
+        return "done"
+    else: 
+        return render_template('index.html')
+
+def testing(y):
+    cough = 0
+    diarrhea = 0
+    chestpain = 0
+    highfever = 0
+    flu = 0
+    weakness = 0
+    myalgia = 0
+    headache = 0
+    nausea = 0
+    lossoftaste = 0
+    swollenlymph = 0
+    noappetite = 0
+    constipation = 0
+    abdominal = 0
+    lymphnode = 0
+    rash = 0
+    highfever=0
+    fatigue = 0
+    weightloss = 0
+    excesssweat = 0
+
+    for x in y:
+        if(x=="1"):
+            cough = 1
+        elif(x=="2"):
+            diarrhea = 1
+        elif(x=="3"):
+            chestpain = 1
+        elif(x=="4"):
+            highfever = 1
+        elif(x=="5"):
+            flu = 1
+        elif(x=="6"):
+            weakness = 1
+        elif(x=="7"):
+            myalgia = 1
+        elif(x=="8"):
+            headache = 1
+        elif(x=="9"):
+            nausea = 1
+        elif(x=="10"):
+            lossoftaste = 1
+        elif(x=="11"):
+            swollenlymph = 1
+        elif(x=="12"):
+            noappetite = 1
+        elif(x=="13"):
+            constipation = 1
+        elif(x=="14"):
+            abdominal = 1
+        elif(x=="15"):
+            lymphnode = 1
+        elif(x=="16"):
+            rash = 1
+        elif(x=="17"):
+            highfever
+        elif(x=="18"):
+            fatigue = 1
+        elif(x=="19"):
+            weightloss = 1
+        else:
+            excesssweat = 1
+
+    return cough, diarrhea, chestpain, highfever, flu, weakness, myalgia, headache, nausea, lossoftaste, swollenlymph, noappetite, constipation, abdominal, lymphnode, rash, highfever, fatigue, weightloss, excesssweat
+
 
 if __name__ == "__main__":
 	app.run(debug=True)
- 
