@@ -1,62 +1,32 @@
 {% extends 'base.html' %}
 
+
 {% block body %}
- 
-<form method="POST" action="/">
-    Cough? <input type="checkbox" value="1" name="mycheckbox"><br>
-    Diarrhea? <input type="checkbox" value="2" name="mycheckbox"><br>
-    Chestpain? <input type="checkbox" value="3" name="mycheckbox"><br>
-    High fever? <input type="checkbox" value="4" name="mycheckbox"><br>
-    Flu? <input type="checkbox" value="5" name="mycheckbox"><br>
-    Weakness? <input type="checkbox" value="6" name="mycheckbox"><br>
-    Myalgia? <input type="checkbox" value="7" name="mycheckbox"><br>
-    Headache? <input type="checkbox" value="8" name="mycheckbox"><br>
-    Nausea? <input type="checkbox" value="9" name="mycheckbox"><br>
-    Loss of taste? <input type="checkbox" value="10" name="mycheckbox"><br>
-    Swollen Lymph Node? <input type="checkbox" value="11" name="mycheckbox"><br>
-    No appetite? <input type="checkbox" value="12" name="mycheckbox"><br>
-    Constipation? <input type="checkbox" value="13" name="mycheckbox"><br>
-    Abdominal pains? <input type="checkbox" value="14" name="mycheckbox"><br>
-    Swollen Lymph Node? <input type="checkbox" value="15" name="mycheckbox"><br>
-    Rash? <input type="checkbox" value="16" name="mycheckbox"><br>
-    Fever? <input type="checkbox" value="17" name="mycheckbox"><br>
-    Fatigue? <input type="checkbox" value="18" name="mycheckbox"><br>
-    Weight Loss? <input type="checkbox" value="19" name="mycheckbox"><br>
-    Excess sweat? <input type="checkbox" value="20" name="mycheckbox"><br>
-    <br>
-    <input type="submit">
-</form>
-<!--div class="container">
+<div class="container">
     <div class="row">
-    
-            <form name="myForm" action=""  method="post" onsubmit="">
-              
-               
-                1. Do you have a cough? <br>  
-                <input type="radio" name="cough" id="option1" value="yes cough"> Yes </input>
-                <input type="radio" name="cough" id="option2" value="no cough "> No </input>
-                <br>
-                2. Do you have diarrhea? <br>  
-                <input type="radio" name="diarrhea" id="option1" value="yes diarrhea"> Yes </input>
-                <input type="radio" name="diarrhea" id="option2" value="no diarrhea "> No </input>
-                <br>
-                <p><input type=submit value=Next></p>
-            </form>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-6">
+        <div class="col-5">
         </div>
-        <div class="col-6">
-            {% if hi %}
-            <h5 id="answer" class="ml-5 pb-5"> {{hi}} </h2>
-            {% endif %}
+        <div class="col-7">
+            Hello, I am a:
         </div>
     </div>
-  
+    <br>
+    <div class="row">
+        <div class="col-3">
 
+        </div>
+        <div class="col-3">
+            <!-- <button type="button" class="btn btn-primary btn-sm" href="/Medical">Medical Professional</button> -->
+            <a class="nav-link" href="/Medical">Medical Professional</a>
+        </div>
+        <div class="col-3">
+            <!-- <button type="button" class="btn btn-primary btn-sm" href="/Non-Medical">Non-Medical Professional</button> -->
+            <a class="nav-link" href="/Non-Medical">Non-Medical Professional</a>
+        </div>
+        <div class="col-3">
 
-</div-->
-    
+        </div>
+    </div>
+</div>
+
 {% endblock %}

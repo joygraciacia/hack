@@ -6,18 +6,47 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'hard to guess'
+@app.route('/',methods=['GET','POST'])
+def home():
+    return render_template('index.html')
 
-@app.route('/', methods=['GET','POST'])
+
+@app.route('/Non-Medical', methods=['GET','POST'])
+def non_med():
+    if request.method == 'POST':
+        response = request.form.getlist('mycheckbox')
+        print(response)
+        results = testing(response)
+        print(results)
+        return render_template('nonmedical_results.html')
+    else: 
+        return render_template('nonmedical.html')
+
+@app.route('/Medical', methods=['GET','POST'])
 def index():
     if request.method == 'POST':
         response = request.form.getlist('mycheckbox')
         print(response)
         results = testing(response)
         print(results)
-        return "done"
+        return render_template('doctor_results.html')
     else: 
-        return render_template('index.html')
+        return render_template('doctor.html')
+
+# def med():
+#     return "MEDICAL"
+
+# #his works perfectly for doctor.html
+# @app.route('/Medical', methods=['GET','POST'])
+# def index():
+#     if request.method == 'POST':
+#         response = request.form.getlist('mycheckbox')
+#         print(response)
+#         results = testing(response)
+#         print(results)
+#         return render_template('index.html')
+#     else: 
+#         return render_template('doctor.html')
 
 def testing(y):
     cough = 0
@@ -84,7 +113,6 @@ def testing(y):
             excesssweat = 1
 
     return cough, diarrhea, chestpain, highfever, flu, weakness, myalgia, headache, nausea, lossoftaste, swollenlymph, noappetite, constipation, abdominal, lymphnode, rash, highfever, fatigue, weightloss, excesssweat
-
 
 if __name__ == "__main__":
 	app.run(debug=True)
